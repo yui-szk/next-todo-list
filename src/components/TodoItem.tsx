@@ -9,12 +9,13 @@ type Props = {
 
 export function TodoItem({ todo, checkTodo, editTodo, removeTodo }: Props) {
   return (
-    <li>
+    <li className="flex space-x-3">
       <input
         type="text"
         disabled={todo.checked || todo.removed}
         value={todo.value}
         onChange={(e) => editTodo({ id: todo.id, value: e.target.value })}
+        className="p-1 border border-slate-700"
       />
       <input
         type="checkbox"
@@ -24,6 +25,7 @@ export function TodoItem({ todo, checkTodo, editTodo, removeTodo }: Props) {
       />
       <button
         onClick={() => removeTodo({ id: todo.id, removed: !todo.removed })}
+        className="border border-slate-600 p-1"
       >
         {todo.removed ? "Restore" : "Delete"}
       </button>

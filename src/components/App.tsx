@@ -30,7 +30,7 @@ export function App() {
   };
 
   return (
-    <div>
+    <div className="p-4 mx-auto max-w-4xl space-y-10">
       <Select
         options={filters.map((v) => ({ value: v, name: v }))}
         defaultValue={"all"}
@@ -43,17 +43,28 @@ export function App() {
       ) : (
         filter !== "checked" && (
           <form
+            className="flex space-x-3"
             onSubmit={(e) => {
               e.preventDefault();
               handleSubmit();
             }}
           >
-            <input type="text" value={text} onChange={(e) => handleChange(e)} />
-            <input type="submit" value="Add" onSubmit={handleSubmit} />
+            <input
+              type="text"
+              value={text}
+              onChange={(e) => handleChange(e)}
+              className="border border-slate-700 p-1"
+            />
+            <input
+              type="submit"
+              value="Add"
+              onSubmit={handleSubmit}
+              className="border border-slate-600 p-1"
+            />
           </form>
         )
       )}
-      <ul>
+      <ul className="space-y-4">
         {filteredTodos.map((todo) => (
           <TodoItem
             key={todo.id}
