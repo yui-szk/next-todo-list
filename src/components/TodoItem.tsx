@@ -1,4 +1,5 @@
 import type { Todo } from "@/types/todo";
+import { Button } from "@/components/Button";
 
 type Props = {
   todo: Todo;
@@ -23,12 +24,11 @@ export function TodoItem({ todo, checkTodo, editTodo, removeTodo }: Props) {
         checked={todo.checked}
         onChange={() => checkTodo({ id: todo.id, checked: !todo.checked })}
       />
-      <button
+      <Button
         onClick={() => removeTodo({ id: todo.id, removed: !todo.removed })}
-        className="border border-slate-600 p-1"
       >
         {todo.removed ? "Restore" : "Delete"}
-      </button>
+      </Button>
     </li>
   );
 }
