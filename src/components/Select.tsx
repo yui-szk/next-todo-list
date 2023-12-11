@@ -12,7 +12,9 @@ export function Select({ options, defaultValue, onChange }: Props) {
       className="border border-slate-700 p-1"
     >
       {options.map(({ value, name }) => (
-        <option value={value}>{name}</option>
+        <option key={value} value={value}>
+          {name}
+        </option>
       ))}
     </select>
   );
