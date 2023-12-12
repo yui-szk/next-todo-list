@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { TodoItem } from "@/components/TodoItem";
 import { Select } from "@/components/Select";
-import { filters, type Filter } from "@/constants/filter";
+import { filters, type Filter, options } from "@/constants/filter";
 import { useTodos } from "@/hooks/useTodos";
 
 export function App() {
@@ -34,18 +34,18 @@ export function App() {
       <header className="flex h-24 items-center justify-between px-4">
         マイタスク
         <Select
-          options={filters.map((v) => ({ value: v, name: v }))}
+          options={[...options]}
           defaultValue={"all"}
           onChange={(e) => handleFilter(e.target.value as Filter)}
         />
       </header>
       <div className="mx-auto max-w-4xl space-y-0 p-4">
-        {filter === "削除済" ? (
+        {filter === "removed" ? (
           <button onClick={handleEmpty} disabled={canHandleEmpty}>
             ゴミ箱を空にする
           </button>
         ) : (
-          filter !== "完了済" && (
+          filter !== "checked" && (
             <form
               className="flex h-16 items-center justify-between border-b"
               onSubmit={(e) => {
