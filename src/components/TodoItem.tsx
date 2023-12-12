@@ -17,18 +17,18 @@ export function TodoItem({ todo, checkTodo, editTodo, removeTodo }: Props) {
         disabled={todo.removed}
         checked={todo.checked}
         onChange={() => checkTodo({ id: todo.id, checked: !todo.checked })}
-        className="h-5 w-5"
+        className="peer h-6 w-6 cursor-pointer"
       />
       <input
         type="text"
         disabled={todo.checked || todo.removed}
         value={todo.value}
         onChange={(e) => editTodo({ id: todo.id, value: e.target.value })}
-        className="w-full focus:outline-none"
+        className="h-10 w-full focus:outline-none peer-checked:opacity-50"
       />
       <button
         onClick={() => removeTodo({ id: todo.id, removed: !todo.removed })}
-        className="flex w-16 shrink-0 items-center justify-center"
+        className="flex h-12 w-16 shrink-0 items-center justify-center"
       >
         {todo.removed ? (
           "元に戻す"

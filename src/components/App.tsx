@@ -32,7 +32,7 @@ export function App() {
   return (
     <main className="mx-auto max-w-2xl">
       <header className="flex h-24 items-center justify-between px-4">
-        マイタスク
+        <div className="p-4 text-xl">マイタスク</div>
         <Select
           options={[...options]}
           defaultValue={"all"}
@@ -41,7 +41,11 @@ export function App() {
       </header>
       <div className="mx-auto max-w-4xl space-y-0 p-4">
         {filter === "removed" ? (
-          <button onClick={handleEmpty} disabled={canHandleEmpty}>
+          <button
+            onClick={handleEmpty}
+            disabled={canHandleEmpty}
+            className="rounded-md border-2 border-red-200 px-4 py-2 text-xs font-bold text-neutral-500"
+          >
             ゴミ箱を空にする
           </button>
         ) : (
