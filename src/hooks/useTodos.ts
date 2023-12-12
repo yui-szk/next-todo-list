@@ -4,9 +4,10 @@ import type { Todo } from "@/types/todo";
 
 export function useTodos() {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [filter, setFilter] = useState<Filter>("all");
+  const [filter, setFilter] = useState<Filter>("全て");
 
   function addTodo(text: string) {
+    console.log(todos);
     const newTodo: Todo = {
       value: text,
       id: new Date().getTime(),
@@ -36,6 +37,7 @@ export function useTodos() {
   }
 
   const handleFilter = (filter: Filter) => {
+    console.log(todos);
     setFilter(filter);
   };
 
@@ -46,10 +48,10 @@ export function useTodos() {
   };
 
   const filteredTodos = todos.filter((todo) => {
-    if (filter === "all") return !todo.removed;
-    if (filter === "checked") return todo.checked && !todo.removed;
-    if (filter === "unchecked") return !todo.checked && !todo.removed;
-    if (filter === "removed") return todo.removed;
+    if (filter === "全て") return !todo.removed;
+    if (filter === "完了済") return todo.checked && !todo.removed;
+    if (filter === "未完了") return !todo.checked && !todo.removed;
+    if (filter === "削除済") return todo.removed;
   });
 
   return {
