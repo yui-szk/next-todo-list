@@ -61,7 +61,7 @@ export function App() {
                 type="text"
                 value={text}
                 onChange={(e) => handleChange(e)}
-                placeholder="タスクの追加"
+                placeholder="タスクの追加..."
                 className="w-full p-1 focus:outline-none"
               />
               <button

@@ -28,7 +28,7 @@ export function TodoItem({ todo, checkTodo, editTodo, removeTodo }: Props) {
       />
       <button
         onClick={() => removeTodo({ id: todo.id, removed: !todo.removed })}
-        className="flex h-12 w-14 shrink-0 items-center justify-center rounded bg-gray-200 text-xs font-bold text-gray-600"
+        className="flex h-12 w-14 shrink-0 items-center justify-center rounded bg-gray-200 text-xs font-bold text-gray-600 hover:bg-gray-300"
       >
         {todo.removed ? (
           "元に戻す"
