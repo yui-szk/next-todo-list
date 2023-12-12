@@ -20,19 +20,19 @@ export function useTodos() {
 
   function editTodo({ id, value }: Pick<Todo, "id" | "value">) {
     setTodos((todos) =>
-      todos.map((todo) => (todo.id === id ? { ...todo, value } : todo))
+      todos.map((todo) => (todo.id === id ? { ...todo, value } : todo)),
     );
   }
 
   function checkTodo({ id, checked }: Pick<Todo, "id" | "checked">) {
     setTodos((todos) =>
-      todos.map((todo) => (todo.id === id ? { ...todo, checked } : todo))
+      todos.map((todo) => (todo.id === id ? { ...todo, checked } : todo)),
     );
   }
 
   function removeTodo({ id, removed }: Pick<Todo, "id" | "removed">) {
     setTodos((todos) =>
-      todos.map((todo) => (todo.id === id ? { ...todo, removed } : todo))
+      todos.map((todo) => (todo.id === id ? { ...todo, removed } : todo)),
     );
   }
 
