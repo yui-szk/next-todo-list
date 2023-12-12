@@ -4,7 +4,7 @@ import type { Todo } from "@/types/todo";
 
 export function useTodos() {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [filter, setFilter] = useState<Filter>("全て");
+  const [filter, setFilter] = useState<Filter>("all");
 
   function addTodo(text: string) {
     console.log(todos);
@@ -48,10 +48,10 @@ export function useTodos() {
   };
 
   const filteredTodos = todos.filter((todo) => {
-    if (filter === "全て") return !todo.removed;
-    if (filter === "完了済") return todo.checked && !todo.removed;
-    if (filter === "未完了") return !todo.checked && !todo.removed;
-    if (filter === "削除済") return todo.removed;
+    if (filter === "all") return !todo.removed;
+    if (filter === "checked") return todo.checked && !todo.removed;
+    if (filter === "unchecked") return !todo.checked && !todo.removed;
+    if (filter === "removed") return todo.removed;
   });
 
   return {
