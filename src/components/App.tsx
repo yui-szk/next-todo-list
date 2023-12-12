@@ -31,7 +31,7 @@ export function App() {
 
   return (
     <main className="mx-auto max-w-2xl">
-      <header className="flex h-24 items-center justify-between px-4">
+      <header className="m-6 flex h-24 items-center justify-between px-4">
         <div className="p-4 text-xl">マイタスク</div>
         <Select
           options={[...options]}
@@ -44,7 +44,7 @@ export function App() {
           <button
             onClick={handleEmpty}
             disabled={canHandleEmpty}
-            className="rounded-md border-2 border-red-200 px-4 py-2 text-xs font-bold text-neutral-500"
+            className="items-right border-1 rounded-md bg-gray-600 px-4 py-2 text-xs font-bold text-gray-100 hover:text-gray-400"
           >
             ゴミ箱を空にする
           </button>
@@ -66,7 +66,7 @@ export function App() {
               />
               <button
                 type="submit"
-                className="flex w-16 shrink-0 items-center justify-center "
+                className="flex w-14 shrink-0 items-center justify-center "
               >
                 <div className="relative h-5 w-5">
                   <div className="absolute left-1/2 top-0 h-5 w-0.5 -translate-x-1/2 bg-slate-600" />

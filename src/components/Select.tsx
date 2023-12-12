@@ -9,7 +9,7 @@ export function Select({ options, defaultValue, onChange }: Props) {
     <select
       defaultValue={defaultValue}
       onChange={onChange}
-      className="cursor-pointer border-b border-r p-1"
+      className="cursor-pointer border-b border-r p-1 focus:outline-0"
     >
       {options.map(({ value, name }) => (
         <option key={value} value={value}>
