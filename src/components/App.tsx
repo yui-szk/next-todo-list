@@ -30,8 +30,8 @@ export function App() {
   };
 
   return (
-    <main className="max-w-2xl mx-auto">
-      <header className="h-24 flex justify-between items-center px-4">
+    <main className="mx-auto max-w-2xl">
+      <header className="flex h-24 items-center justify-between px-4">
         マイタスク
         <Select
           options={filters.map((v) => ({ value: v, name: v }))}
@@ -39,7 +39,7 @@ export function App() {
           onChange={(e) => handleFilter(e.target.value as Filter)}
         />
       </header>
-      <div className="p-4 mx-auto max-w-4xl space-y-10">
+      <div className="mx-auto max-w-4xl space-y-0 p-4">
         {filter === "削除済" ? (
           <button onClick={handleEmpty} disabled={canHandleEmpty}>
             ゴミ箱を空にする
@@ -47,7 +47,7 @@ export function App() {
         ) : (
           filter !== "完了済" && (
             <form
-              className="flex space-x-3"
+              className="flex h-16 items-center justify-between border-b"
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmit();
@@ -57,14 +57,18 @@ export function App() {
                 type="text"
                 value={text}
                 onChange={(e) => handleChange(e)}
-                className="border border-slate-700 p-1"
+                placeholder="タスクの追加"
+                className="w-full p-1 focus:outline-none"
               />
-              <input
+              <button
                 type="submit"
-                value="Add"
-                onSubmit={handleSubmit}
-                className="border border-slate-600 p-1"
-              />
+                className="flex w-16 shrink-0 items-center justify-center "
+              >
+                <div className="relative h-5 w-5">
+                  <div className="absolute left-1/2 top-0 h-5 w-0.5 -translate-x-1/2 bg-slate-600" />
+                  <div className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 bg-slate-600" />
+                </div>
+              </button>
             </form>
           )
         )}

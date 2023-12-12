@@ -11,24 +11,24 @@ type Props = {
 
 export function TodoItem({ todo, checkTodo, editTodo, removeTodo }: Props) {
   return (
-    <li className="h-16 flex border-b justify-between items-center space-x-4">
+    <li className="flex h-16 items-center justify-between space-x-4 border-b">
       <input
         type="checkbox"
         disabled={todo.removed}
         checked={todo.checked}
         onChange={() => checkTodo({ id: todo.id, checked: !todo.checked })}
-        className="w-5 h-5"
+        className="h-5 w-5"
       />
       <input
         type="text"
         disabled={todo.checked || todo.removed}
         value={todo.value}
         onChange={(e) => editTodo({ id: todo.id, value: e.target.value })}
-        className="w-full"
+        className="w-full focus:outline-none"
       />
       <button
         onClick={() => removeTodo({ id: todo.id, removed: !todo.removed })}
-        className="shrink-0"
+        className="flex w-16 shrink-0 items-center justify-center"
       >
         {todo.removed ? (
           "元に戻す"
