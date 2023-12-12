@@ -1,5 +1,6 @@
 import type { Todo } from "@/types/todo";
-import { Button } from "@/components/Button";
+import Image from "next/image";
+import localImage from "public/delete.svg";
 
 type Props = {
   todo: Todo;
@@ -10,25 +11,31 @@ type Props = {
 
 export function TodoItem({ todo, checkTodo, editTodo, removeTodo }: Props) {
   return (
-    <li className="flex space-x-3">
-      <input
-        type="text"
-        disabled={todo.checked || todo.removed}
-        value={todo.value}
-        onChange={(e) => editTodo({ id: todo.id, value: e.target.value })}
-        className="p-1 border border-slate-700"
-      />
+    <li className="h-16 flex border-b justify-between items-center space-x-4">
       <input
         type="checkbox"
         disabled={todo.removed}
         checked={todo.checked}
         onChange={() => checkTodo({ id: todo.id, checked: !todo.checked })}
+        className="w-5 h-5"
       />
-      <Button
+      <input
+        type="text"
+        disabled={todo.checked || todo.removed}
+        value={todo.value}
+        onChange={(e) => editTodo({ id: todo.id, value: e.target.value })}
+        className="w-full"
+      />
+      <button
         onClick={() => removeTodo({ id: todo.id, removed: !todo.removed })}
+        className="shrink-0"
       >
-        {todo.removed ? "Restore" : "Delete"}
-      </Button>
+        {todo.removed ? (
+          "元に戻す"
+        ) : (
+          <Image src={localImage} alt="delete icon" />
+        )}
+      </button>
     </li>
   );
 }
