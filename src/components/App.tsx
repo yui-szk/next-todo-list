@@ -2,9 +2,9 @@
 import { useState } from "react";
 import { TodoItem } from "@/components/TodoItem";
 import { Select } from "@/components/Select";
-import { filters, type Filter, options } from "@/constants/filter";
+import { type Filter, options } from "@/constants/filter";
 import { useTodos } from "@/hooks/useTodos";
-import { confirm } from "@/dev/confirm";
+import { confirm } from "@/libs/confirm";
 
 export function App() {
   const [text, setText] = useState("");
@@ -46,7 +46,7 @@ export function App() {
           <button
             onClick={() => confirm(handleEmpty)}
             disabled={canHandleEmpty}
-            className="items-right border-1 rounded-md bg-gray-600 px-4 py-2 text-xs font-bold text-gray-100 hover:text-gray-400"
+            className="items-right border-1 rounded-md bg-gray-600 px-4 py-2 text-xs font-bold text-gray-100 md:hover:text-gray-400"
           >
             ゴミ箱を空にする
           </button>

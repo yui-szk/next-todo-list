@@ -7,7 +7,6 @@ export function useTodos() {
   const [filter, setFilter] = useState<Filter>("all");
 
   function addTodo(text: string) {
-    console.log(todos);
     const newTodo: Todo = {
       value: text,
       id: new Date().getTime(),
@@ -36,16 +35,15 @@ export function useTodos() {
     );
   }
 
-  const handleFilter = (filter: Filter) => {
-    console.log(todos);
+  function handleFilter(filter: Filter) {
     setFilter(filter);
-  };
+  }
 
   const canHandleEmpty = todos.every((todo) => !todo.removed);
 
-  const handleEmpty = () => {
+  function handleEmpty() {
     setTodos((todos) => todos.filter((todo) => !todo.removed));
-  };
+  }
 
   const filteredTodos = todos.filter((todo) => {
     if (filter === "all") return !todo.removed;
