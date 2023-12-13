@@ -4,6 +4,7 @@ import { TodoItem } from "@/components/TodoItem";
 import { Select } from "@/components/Select";
 import { filters, type Filter, options } from "@/constants/filter";
 import { useTodos } from "@/hooks/useTodos";
+import { confirm } from "@/dev/confirm";
 
 export function App() {
   const [text, setText] = useState("");
@@ -24,9 +25,10 @@ export function App() {
   };
 
   const handleSubmit = () => {
-    if (!text) return;
-    addTodo(text);
-    setText("");
+    if (text) {
+      addTodo(text);
+      setText("");
+    }
   };
 
   return (
@@ -42,7 +44,7 @@ export function App() {
       <div className="mx-auto max-w-4xl space-y-0 p-4">
         {filter === "removed" ? (
           <button
-            onClick={handleEmpty}
+            onClick={() => confirm(handleEmpty)}
             disabled={canHandleEmpty}
             className="items-right border-1 rounded-md bg-gray-600 px-4 py-2 text-xs font-bold text-gray-100 hover:text-gray-400"
           >
