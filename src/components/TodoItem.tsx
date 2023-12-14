@@ -24,7 +24,7 @@ export function TodoItem({ todo, checkTodo, editTodo, removeTodo }: Props) {
         disabled={todo.checked || todo.removed}
         value={todo.value}
         onChange={(e) => editTodo({ id: todo.id, value: e.target.value })}
-        className="h-10 w-full bg-white focus:outline-none peer-checked:opacity-50"
+        className="h-10 w-full bg-white focus:outline-none peer-checked:line-through peer-checked:opacity-40"
       />
       <button
         onClick={() => removeTodo({ id: todo.id, removed: !todo.removed })}
